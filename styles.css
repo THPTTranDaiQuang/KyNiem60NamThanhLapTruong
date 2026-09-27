@@ -181,8 +181,8 @@ body.ocean-theme {
   top: 0;
   z-index: 100;
   background: rgba(255, 255, 255, 0.65);
-  backdrop-filter: blur(30px) saturate(200%);
-  -webkit-backdrop-filter: blur(30px) saturate(200%);
+  backdrop-filter: blur(15px) saturate(150%);
+  -webkit-backdrop-filter: blur(15px) saturate(150%);
   border-bottom: 1px solid var(--border-sea);
   box-shadow: 0 4px 20px rgba(2, 132, 199, 0.08);
   transition: var(--transition-normal);
@@ -639,8 +639,8 @@ body.ocean-theme {
    ========================================================================== */
 .countdown-display {
   background: rgba(255, 255, 255, 0.4);
-  backdrop-filter: blur(40px) saturate(200%);
-  -webkit-backdrop-filter: blur(40px) saturate(200%);
+  backdrop-filter: blur(15px) saturate(150%);
+  -webkit-backdrop-filter: blur(15px) saturate(150%);
   border: 1px solid rgba(255, 255, 255, 0.6);
   border-radius: 24px;
   padding: 35px 30px;
@@ -652,20 +652,7 @@ body.ocean-theme {
   overflow: hidden;
 }
 
-/* Hiệu ứng bóng bẩy phản chiếu nước sượt ngang */
-.countdown-display::after {
-  content: '';
-  position: absolute;
-  top: 0; left: -100%;
-  width: 50%; height: 100%;
-  background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,0.4) 50%, rgba(255,255,255,0) 100%);
-  transform: skewX(-20deg);
-  animation: glass-sweep 6s infinite ease-in-out;
-  pointer-events: none;
-}
-@keyframes glass-sweep {
-  0% { left: -100%; }
-  15% { left: 200%; }
+15% { left: 200%; }
   100% { left: 200%; }
 }
 
@@ -713,8 +700,8 @@ body.ocean-theme {
 
 .card-glass {
   background: rgba(255, 255, 255, 0.45);
-  backdrop-filter: blur(30px) saturate(150%);
-  -webkit-backdrop-filter: blur(30px) saturate(150%);
+  backdrop-filter: blur(12px) saturate(120%);
+  -webkit-backdrop-filter: blur(12px) saturate(120%);
   border: 1px solid rgba(255, 255, 255, 0.7);
   border-radius: 16px;
   padding: 20px 10px;
@@ -2539,32 +2526,11 @@ body.ocean-theme {
 /* ==========================================================================
    Trống Đồng Background & Lous Divider
    ========================================================================== */
-.trong-dong-bg {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 900px;
-  height: 900px;
-  object-fit: contain;
-  opacity: 0.25;
-  transform: translate(-50%, -50%);
-  animation: spin-slow 180s linear infinite;
-  pointer-events: none;
-  z-index: 1;
-}
-
-@keyframes spin-slow {
-  0% { transform: translate(-50%, -50%) rotate(0deg); }
-  100% { transform: translate(-50%, -50%) rotate(360deg); }
+100% { transform: translate(-50%, -50%) rotate(360deg); }
 }
 
 @media (max-width: 768px) {
-  .trong-dong-bg {
-    width: 500px;
-    height: 500px;
-    opacity: 0.2;
   }
-}
 
 .lotus-divider {
   display: flex;
