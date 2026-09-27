@@ -2816,3 +2816,132 @@ body.ocean-theme {
 .stepper-content:hover::after {
   opacity: 1;
 }
+
+/* ==========================================================================
+   Advanced Button Effects (Apple-like Tab Slider)
+   ========================================================================== */
+/* Nâng cấp các nút Tab (Chọn sự kiện, Chọn giấy mời) */
+.tab-container {
+  position: relative;
+  display: inline-flex;
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  padding: 6px;
+  border-radius: 50px;
+  border: 1px solid rgba(255,255,255,0.8);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.05), inset 0 2px 5px rgba(255,255,255,1);
+  margin-bottom: 25px;
+}
+
+.tab-btn {
+  position: relative;
+  z-index: 2;
+  background: transparent;
+  border: none;
+  padding: 12px 25px;
+  font-weight: 700;
+  color: var(--text-muted);
+  border-radius: 40px;
+  cursor: pointer;
+  transition: color 0.3s ease, transform 0.2s cubic-bezier(0.25, 1.5, 0.5, 1);
+}
+
+.tab-btn:hover {
+  color: var(--sea-700);
+  transform: scale(1.05);
+}
+
+.tab-btn.active {
+  color: white;
+  background: var(--sea-gradient);
+  box-shadow: 0 8px 20px rgba(2, 132, 199, 0.3);
+  transform: scale(1.05);
+}
+
+/* ==========================================================================
+   Floating Music Widget
+   ========================================================================== */
+.music-widget {
+  position: fixed;
+  bottom: 30px;
+  left: 30px;
+  z-index: 1000;
+}
+
+.music-toggle {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255,255,255,1);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+  color: var(--sea-600);
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.25, 1.5, 0.5, 1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.music-toggle:hover {
+  transform: scale(1.15) rotate(10deg);
+  color: var(--coral-500);
+  background: white;
+}
+
+.music-menu {
+  position: absolute;
+  bottom: 65px;
+  left: 0;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(20px);
+  border-radius: 16px;
+  padding: 15px;
+  width: 280px;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+  border: 1px solid rgba(255,255,255,1);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(20px) scale(0.95);
+  transform-origin: bottom left;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.music-menu.show {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0) scale(1);
+}
+
+.music-link {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  color: var(--text-main);
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 600;
+  border-radius: 10px;
+  transition: all 0.2s;
+  margin-bottom: 5px;
+}
+.music-link:last-child { margin-bottom: 0; }
+.music-link:hover {
+  background: var(--sea-50);
+  color: var(--sea-700);
+  transform: translateX(5px);
+}
+.music-link i {
+  color: var(--coral-500);
+}
+
+@media (max-width: 768px) {
+  .music-widget {
+    bottom: 20px;
+    left: 20px;
+  }
+}

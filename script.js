@@ -1382,3 +1382,111 @@ if (eventModal) {
 document.getElementById('em-add-cal')?.addEventListener('click', () => {
     alert("Đã mở ứng dụng Lịch (Calendar) để thêm sự kiện này!");
 });
+
+// ==========================================================================
+// MUSIC WIDGET LOGIC
+// ==========================================================================
+const musicToggle = document.getElementById('music-toggle');
+const musicMenu = document.getElementById('music-menu');
+
+if (musicToggle && musicMenu) {
+    musicToggle.addEventListener('click', (e) => {
+        e.stopPropagation();
+        musicMenu.classList.toggle('show');
+    });
+    
+    document.addEventListener('click', (e) => {
+        if (!musicMenu.contains(e.target) && e.target !== musicToggle) {
+            musicMenu.classList.remove('show');
+        }
+    });
+}
+
+// ==========================================================================
+// FLYING BIRDS MOUSE TRAIL (OPTIMIZED CANVAS)
+// ==========================================================================
+(function() {
+    // Disable on mobile to save battery and prevent lag
+    if (window.innerWidth <= 768) return;
+
+    const canvas = document.getElementById('bird-canvas');
+    if (!canvas) return;
+    const ctx = canvas.getContext('2d');
+    let width, height;
+
+    function resize() {
+        width = canvas.width = window.innerWidth;
+        height = canvas.height = window.innerHeight;
+    }
+    window.addEventListener('resize', resize);
+    resize();
+
+    const birds = [];
+    let mouse = { x: -1000, y: -1000 };
+    let lastSpawn = 0;
+
+    window.addEventListener('mousemove', (e) => {
+        mouse.x = e.clientX;
+        mouse.y = e.clientY;
+        
+        const now = Date.now();
+        // Throttle spawn rate to prevent lag (max 1 bird per 50ms)
+        if (now - lastSpawn > 50) {
+            birds.push({
+                x: mouse.x,
+                y: mouse.y,
+                vx: (Math.random() - 0.5) * 2,
+                vy: (Math.random() - 0.5) * 2 - 1, // Tend to fly up
+                life: 1.0,
+                decay: 0.015 + Math.random() * 0.02,
+                size: 4 + Math.random() * 4,
+                flapSpeed: 0.1 + Math.random() * 0.2,
+                angle: 0
+            });
+            lastSpawn = now;
+        }
+    });
+
+    function drawBird(x, y, size, life, flapAngle) {
+        ctx.save();
+        ctx.translate(x, y);
+        ctx.globalAlpha = life * 0.6; // Subtle opacity
+        ctx.strokeStyle = '#0ea5e9'; // Sea blue color
+        ctx.lineWidth = 1.5;
+        ctx.lineJoin = 'round';
+        ctx.lineCap = 'round';
+
+        // Draw a simple "V" shaped bird with flapping wings
+        ctx.beginPath();
+        // Left wing
+        ctx.moveTo(-size, -size * Math.sin(flapAngle));
+        ctx.quadraticCurveTo(-size/2, 0, 0, 0);
+        // Right wing
+        ctx.quadraticCurveTo(size/2, 0, size, -size * Math.sin(flapAngle));
+        ctx.stroke();
+        ctx.restore();
+    }
+
+    function animate() {
+        ctx.clearRect(0, 0, width, height);
+
+        for (let i = birds.length - 1; i >= 0; i--) {
+            let b = birds[i];
+            b.x += b.vx;
+            b.y += b.vy;
+            b.life -= b.decay;
+            b.angle += b.flapSpeed;
+
+            if (b.life <= 0) {
+                birds.splice(i, 1);
+            } else {
+                drawBird(b.x, b.y, b.size, b.life, b.angle);
+            }
+        }
+        
+        requestAnimationFrame(animate);
+    }
+    
+    // Start animation loop
+    requestAnimationFrame(animate);
+})();
