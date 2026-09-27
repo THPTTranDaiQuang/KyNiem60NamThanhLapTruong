@@ -1,0 +1,1017 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kỷ Niệm 60 Năm Thành Lập Trường THPT Trần Đại Quang (cấp 3B Kim Sơn) | 1966 - 2026</title>
+  <meta name="description" content="Trang web đếm ngược và Giấy mời điện tử Đại lễ Kỷ niệm 60 năm thành lập trường THPT Trần Đại Quang (tiền thân là Trường cấp 3B Kim Sơn) (1966 - 2026). Ngày 14 & 15 tháng 11 năm 2026. 60 năm - Kiến tạo những ước mơ!">
+  <meta name="keywords" content="THPT Trần Đại Quang, cấp 3B Kim Sơn, kỷ niệm 60 năm, đếm ngược, giấy mời, 1966-2026, Ninh Bình, ngày hội trường">
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Giấy Mời & Đếm Ngược 60 Năm Thành Lập Trường THPT Trần Đại Quang (cấp 3B Kim Sơn)">
+  <meta property="og:description" content="Chào mừng Đại Lễ Kỷ Niệm 60 Năm (1966 - 2026) vào ngày 14 & 15/11/2026. Trân trọng kính mời quý thầy cô, cựu học sinh và học sinh về dự!">
+  <meta property="og:image" content="assets/logo_60nam_official.png">
+
+  <!-- Google Fonts: Montserrat, Playfair Display & Be Vietnam Pro -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,600&family=Cinzel:wght@600;700;800;900&family=Montserrat:wght@600;700;800;900&family=Playfair+Display:ital,wght@0,600;0,700;0,900;1,600&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <!-- Main CSS (Tone xanh biển nhạt cánh sóng nhẹ nhàng) -->
+  <link rel="stylesheet" href="styles.css">
+
+  <style>
+    /* Ép số 60 hiển thị đúng phông số hiện đại, chuẩn dáng số học, không bị biến dạng thành 6o */
+    .font-num-fixed {
+      font-family: 'Montserrat', 'Be Vietnam Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+      font-variant-numeric: lining-nums proportional-nums;
+      font-feature-settings: "lnum" 1;
+      font-weight: 800;
+      letter-spacing: 0.5px;
+      display: inline-block;
+    }
+  </style>
+</head>
+<body class="ocean-theme">
+
+  <!-- Canvas pháo hoa kỷ niệm -->
+  <canvas id="fireworks-canvas"></canvas>
+
+  <!-- Thanh thông báo cánh sóng trên cùng -->
+  <div class="announcement-bar">
+    <div class="container announcement-content">
+      <span class="badge-wave"><i class="fa-solid fa-water"></i> MỐC SON <span class="font-num-fixed">60</span> NĂM</span>
+      <span>Chào mừng Đại lễ Kỷ niệm <span class="font-num-fixed">60</span> năm Ngày thành lập trường THPT Trần Đại Quang (1966 - 2026)</span>
+      <span class="separator">•</span>
+      <span class="highlight-date"><i class="fa-regular fa-calendar-star"></i> Hội ngộ Ngày 14 & 15 Tháng 11 Năm 2026</span>
+    </div>
+  </div>
+
+  <!-- Header Navigation -->
+  <header class="header">
+    <div class="container nav-container">
+      <a href="#" class="brand-logo">
+        <img src="assets/logo_60nam_official.png" alt="Logo 60 năm" class="official-logo" onerror="this.style.display='none'">
+        <div class="brand-text">
+          <div class="school-authority">SỞ GIÁO DỤC VÀ ĐÀO TẠO NINH BÌNH</div>
+          <div class="school-name">TRƯỜNG THPT TRẦN ĐẠI QUANG</div>
+          <div class="school-sub">TIỀN THÂN: THPT KIM SƠN B • 1966 - 2026</div>
+        </div>
+      </a>
+
+      <nav class="nav-links" id="navMenu">
+        <a href="#countdown" class="nav-item active"><i class="fa-solid fa-hourglass-half"></i> Đếm Ngược</a>
+        <a href="#invitation" class="nav-item nav-highlight"><i class="fa-solid fa-envelope-open-text"></i> Giấy Mời</a>
+        <a href="#schedule" class="nav-item"><i class="fa-solid fa-calendar-days"></i> Lịch Trình 14-15</a>
+        <a href="#history" class="nav-item"><i class="fa-solid fa-landmark"></i> 60 Năm Vẻ Vang</a>
+        <a href="#wishes" class="nav-item"><i class="fa-solid fa-feather-pointed"></i> Sổ Lưu Bút</a>
+        <a href="#contact" class="nav-item"><i class="fa-solid fa-map-location-dot"></i> Liên Hệ</a>
+      </nav>
+
+      <div class="header-actions">
+        <button id="toggle-audio-btn" class="icon-btn" title="Bật/Tắt âm vang tiếng chuông & nhạc nền" aria-label="Âm nhạc">
+          <i class="fa-solid fa-music"></i>
+          <span class="btn-text">Nhạc nền</span>
+        </button>
+        <button id="fireworks-trigger-btn" class="btn btn-celebrate" title="Bắn pháo hoa chào mừng">
+          <i class="fa-solid fa-sparkles"></i> Pháo Hoa
+        </button>
+        <button class="mobile-menu-toggle" id="menuToggle" aria-label="Mở menu">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section & Countdown with Gentle Ocean Waves -->
+  <section class="hero-section" id="countdown">
+
+    <!-- Background Slider (Ken Burns Effect) -->
+    <div class="hero-bg-slider">
+      <div class="slide slide-1"></div>
+      <div class="slide slide-2"></div>
+      <div class="slide slide-3"></div>
+    </div>
+    <div class="hero-overlay"></div>
+
+    <!-- Background Animated Ocean Waves -->
+    <div class="ocean-wave-bg">
+      <div class="wave wave1"></div>
+      <div class="wave wave2"></div>
+      <div class="wave wave3"></div>
+    </div>
+
+    <div class="container hero-container">
+      
+      <!-- Logo 60 năm chính thức với cánh sóng nhẹ nhàng -->
+      <div class="hero-emblem-wrapper">
+        <div class="emblem-halo"></div>
+        <img src="assets/logo_60nam_official.png" alt="60 năm - Kiến tạo những ước mơ" class="hero-emblem-img">
+        <div class="emblem-caption"><span class="font-num-fixed">60</span> NĂM • KIẾN TẠO NHỮNG ƯỚC MƠ</div>
+      </div>
+
+      <div class="hero-content">
+        <div class="hero-badge">
+          <i class="fa-solid fa-award"></i> KỶ NIỆM <span class="font-num-fixed">60</span> NĂM THÀNH LẬP TRƯỜNG (1966 - 2026)
+        </div>
+        <h1 class="hero-title">
+          CHÀO MỪNG ĐẠI LỄ KỶ NIỆM <span class="font-num-fixed">60</span> NĂM <br>
+          <span class="sea-gradient-text">TRƯỜNG THPT TRẦN ĐẠI QUANG</span>
+        </h1>
+        <p class="hero-subtitle">
+          (Tiền thân: <strong>Trường cấp 3B Kim Sơn</strong> – Vùng đất kiên cường & giàu truyền thống hiếu học ven biển Kim Sơn, Ninh Bình)
+        </p>
+        <div class="hero-quote">
+          <i class="fa-solid fa-quote-left quote-icon"></i>
+          <span>"Sáu mươi năm một chặng đường – Nở hoa tri thức, vẹn tròn nghĩa nhân – <span class="font-num-fixed">60</span> năm: Kiến tạo những ước mơ!"</span>
+          <i class="fa-solid fa-quote-right quote-icon"></i>
+        </div>
+
+        <!-- Bộ chuyển đổi mốc đếm ngược Ngày 14 & Ngày 15 -->
+        <div class="countdown-switcher-wrapper">
+          <div class="switcher-label"><i class="fa-solid fa-calendar-check"></i> Chọn sự kiện để xem đếm ngược:</div>
+          <div class="countdown-switcher" role="tablist">
+            <button class="switch-btn active" id="tab-day14" data-target="day14" role="tab">
+              <span class="tab-badge">NGÀY 1</span>
+              <span class="tab-title">Hội Khóa & Giao Lưu</span>
+              <span class="tab-date">Thứ Bảy, 14/11/2026</span>
+            </button>
+            <button class="switch-btn" id="tab-day15" data-target="day15" role="tab">
+              <span class="tab-badge highlight">ĐẠI LỄ CHÍNH</span>
+              <span class="tab-title">Lễ Kỷ Niệm 60 Năm</span>
+              <span class="tab-date">Chủ Nhật, 15/11/2026</span>
+            </button>
+            <button class="switch-btn" id="tab-dual" data-target="dual" role="tab">
+              <span class="tab-badge wave-badge">TOÀN CẢNH</span>
+              <span class="tab-title">Cả 2 Ngày 14 & 15</span>
+              <span class="tab-date">Ngày Hội Ngộ Lớn</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Single Target Countdown Display -->
+        <div class="countdown-display" id="single-countdown-view">
+          <div class="target-info-banner">
+            <div class="info-pulse"></div>
+            <div id="target-event-title">Đang đếm ngược tới: <strong>Ngày Hội Ngộ & Hội Trại Khóa (14/11/2026)</strong></div>
+          </div>
+
+          <div class="countdown-cards">
+            <div class="time-card tilt-3d">
+              <div class="card-glass">
+                <span class="card-number" id="days">00</span>
+                <span class="card-unit">NGÀY</span>
+              </div>
+              <div class="card-water-reflection"></div>
+            </div>
+
+            <div class="countdown-separator">:</div>
+
+            <div class="time-card tilt-3d">
+              <div class="card-glass">
+                <span class="card-number" id="hours">00</span>
+                <span class="card-unit">GIỜ</span>
+              </div>
+              <div class="card-water-reflection"></div>
+            </div>
+
+            <div class="countdown-separator">:</div>
+
+            <div class="time-card tilt-3d">
+              <div class="card-glass">
+                <span class="card-number" id="minutes">00</span>
+                <span class="card-unit">PHÚT</span>
+              </div>
+              <div class="card-water-reflection"></div>
+            </div>
+
+            <div class="countdown-separator">:</div>
+
+            <div class="time-card tilt-3d">
+              <div class="card-glass">
+                <span class="card-number" id="seconds">00</span>
+                <span class="card-unit">GIÂY</span>
+              </div>
+              <div class="card-water-reflection"></div>
+            </div>
+          </div>
+
+          <!-- Progress Bar đến ngày lễ -->
+          <div class="countdown-progress-container">
+            <div class="progress-info">
+              <span><i class="fa-solid fa-water"></i> Dòng chảy thời gian tiến tới Đại lễ <span class="font-num-fixed">60</span> năm</span>
+              <span id="progress-percent" class="font-bold">0%</span>
+            </div>
+            <div class="progress-track">
+              <div class="progress-bar-fill" id="progress-bar-fill"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Dual Countdown View (Cả 2 ngày 14 & 15) -->
+        <div class="dual-countdown-display" id="dual-countdown-view" style="display: none;">
+          <div class="dual-grid">
+            <div class="dual-box">
+              <div class="dual-box-header">
+                <span class="tag ocean-tag">NGÀY 14/11/2026 (THỨ BẢY)</span>
+                <h3>Hội Ngộ Thầy Trò & Dạ Hội Văn Nghệ</h3>
+                <p>Đón tiếp đại biểu, hội trại học sinh, giao lưu thể thao, dâng hương & dạ hội âm nhạc</p>
+              </div>
+              <div class="dual-timer" id="dual-timer-14">
+                <div class="d-unit"><span class="d-num" id="d14-days">00</span><span class="d-label">Ngày</span></div>
+                <div class="d-unit"><span class="d-num" id="d14-hours">00</span><span class="d-label">Giờ</span></div>
+                <div class="d-unit"><span class="d-num" id="d14-minutes">00</span><span class="d-label">Phút</span></div>
+                <div class="d-unit"><span class="d-num" id="d14-seconds">00</span><span class="d-label">Giây</span></div>
+              </div>
+              <button class="btn btn-outline-ocean btn-sm add-cal-btn" data-day="14">
+                <i class="fa-solid fa-calendar-plus"></i> Nhắc lịch Ngày 14
+              </button>
+            </div>
+
+            <div class="dual-box highlight-box">
+              <div class="dual-box-header">
+                <span class="tag coral-tag">NGÀY 15/11/2026 (CHỦ NHẬT)</span>
+                <h3>Đại Lễ Chính Thức Kỷ Niệm <span class="font-num-fixed">60</span> Năm</h3>
+                <p>Lễ Mít tinh trọng thể, chương trình nghệ thuật "Mạch nguồn 60 năm", bế mạc & tiệc giao lưu</p>
+              </div>
+              <div class="dual-timer" id="dual-timer-15">
+                <div class="d-unit"><span class="d-num" id="d15-days">00</span><span class="d-label">Ngày</span></div>
+                <div class="d-unit"><span class="d-num" id="d15-hours">00</span><span class="d-label">Giờ</span></div>
+                <div class="d-unit"><span class="d-num" id="d15-minutes">00</span><span class="d-label">Phút</span></div>
+                <div class="d-unit"><span class="d-num" id="d15-seconds">00</span><span class="d-label">Giây</span></div>
+              </div>
+              <button class="btn btn-ocean btn-sm add-cal-btn" data-day="15">
+                <i class="fa-solid fa-calendar-plus"></i> Nhắc lịch Ngày 15
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="hero-cta-group">
+          <a href="#invitation" class="btn btn-ocean">
+            <i class="fa-solid fa-envelope-open-text"></i> Xem & Tải Giấy Mời
+          </a>
+
+          <div class="calendar-dropdown-wrapper">
+            <button class="btn btn-gold" id="calendarDropdownBtn">
+              <i class="fa-regular fa-calendar-check"></i> Thêm Vào Lịch Của Bạn <i class="fa-solid fa-chevron-down ml-1"></i>
+            </button>
+            <div class="dropdown-menu" id="calendarMenu">
+              <a href="#" class="dropdown-item" id="cal-google-14">
+                <i class="fa-brands fa-google text-primary"></i> Google Calendar (Ngày 14/11)
+              </a>
+              <a href="#" class="dropdown-item" id="cal-google-15">
+                <i class="fa-brands fa-google text-primary"></i> Google Calendar (Đại Lễ 15/11)
+              </a>
+              <a href="#" class="dropdown-item" id="cal-ics-all">
+                <i class="fa-solid fa-file-arrow-down text-info"></i> Tải file iCal (.ics) cho Apple/Outlook
+              </a>
+            </div>
+          </div>
+
+          <a href="#wishes" class="btn btn-outline-ocean">
+            <i class="fa-solid fa-heart text-danger"></i> Gửi Lời Tri Ân
+          </a>
+
+          <button class="btn btn-glass-light" id="open-settings-modal" title="Tùy chỉnh giờ nếu cần">
+            <i class="fa-solid fa-sliders"></i> Tùy chỉnh giờ
+          </button>
+        </div>
+
+        <!-- Social Share Bar -->
+        <div class="social-share-strip">
+          <span class="share-text"><i class="fa-solid fa-share-nodes"></i> Lan tỏa giấy mời & ngày hội tới bạn bè:</span>
+          <div class="share-links">
+            <button class="share-pill fb" id="share-facebook" title="Chia sẻ lên Facebook">
+              <i class="fa-brands fa-facebook-f"></i> Facebook
+            </button>
+            <button class="share-pill zalo" id="share-zalo" title="Chia sẻ qua Zalo">
+              <i class="fa-solid fa-comment-dots"></i> Zalo
+            </button>
+            <button class="share-pill copy" id="copy-link-btn" title="Sao chép liên kết">
+              <i class="fa-solid fa-link"></i> <span id="copy-text">Sao chép link</span>
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Wave Divider -->
+  <div class="wave-divider">
+    <svg viewBox="0 0 1440 120" preserveAspectRatio="none">
+      <path d="M0,32L60,42.7C120,53,240,75,360,74.7C480,75,600,53,720,48C840,43,960,53,1080,64C1200,75,1320,85,1380,90.7L1440,96L1440,120L1380,120C1320,120,1200,120,1080,120C960,120,840,120,720,120C600,120,480,120,360,120C240,120,120,120,60,120L0,120Z" fill="#ffffff"></path>
+    </svg>
+  </div>
+
+  <!-- ==========================================================================
+       SECTION: GIẤY MỜI ĐẠI LỄ 60 NĂM
+       ========================================================================== -->
+  <section class="section invitation-section" id="invitation">
+    <div class="container">
+      <div class="section-header text-center">
+        <span class="sub-title"><i class="fa-solid fa-envelope-circle-check"></i> THƯ MỜI CHÍNH THỨC</span>
+        <h2 class="section-title">Giấy Mời Dự Lễ Kỷ Niệm <span class="font-num-fixed">60</span> Năm Thành Lập Trường</h2>
+        <div class="title-underline"></div>
+        <p class="section-description">
+          Ban Giám hiệu Trường THPT Trần Đại Quang trân trọng kính mời toàn thể quý đại biểu, quý thầy cô giáo, cán bộ công nhân viên và các thế hệ cựu học sinh về dự ngày hội trường.
+        </p>
+      </div>
+
+      <!-- Tab chuyển đổi các trang giấy mời -->
+      <div class="invitation-tabs-wrapper">
+        <div class="invitation-tabs" role="tablist">
+          <button class="inv-tab-btn active" id="inv-tab-main" data-target="main">
+            <i class="fa-solid fa-certificate"></i> Giấy Mời Đại Lễ 14 & 15/11/2026 (Chính Thức)
+          </button>
+          <button class="inv-tab-btn" id="inv-tab-prep" data-target="prep">
+            <i class="fa-solid fa-users-rectangle"></i> Giấy Mời Họp Bàn Tổ Chức (04/10/2026)
+          </button>
+          <button class="inv-tab-btn" id="inv-tab-cover" data-target="cover">
+            <i class="fa-solid fa-folder-open"></i> Bìa Ngoài Giấy Mời & Phong Bì
+          </button>
+        </div>
+      </div>
+
+      <!-- Khung Giấy Mời Trực Quan -->
+      <div class="invitation-card-container">
+        
+        <!-- Interactive Preview Box -->
+        <div class="invitation-preview-wrap">
+          <div class="invitation-image-box" id="invitationImageBox">
+            <img src="assets/invitation_p1_web.png" alt="Giấy mời chính thức Lễ kỷ niệm 60 năm THPT Trần Đại Quang" id="invitationImage" class="img-fluid invitation-main-img">
+            <div class="zoom-hint">
+              <i class="fa-solid fa-magnifying-glass-plus"></i> Nhấp để phóng to toàn màn hình
+            </div>
+          </div>
+
+          <!-- Thông tin tóm tắt & Nút tải giấy mời -->
+          <div class="invitation-actions-bar">
+            <div class="invitation-meta-info">
+              <span class="meta-tag"><i class="fa-solid fa-calendar"></i> 07h30 Ngày 15/11/2026</span>
+              <span class="meta-tag"><i class="fa-solid fa-location-dot"></i> Trường THPT Trần Đại Quang, Kim Sơn, Ninh Bình</span>
+              <span class="meta-tag"><i class="fa-solid fa-user-tie"></i> Hiệu trưởng: Nguyễn Mạnh Hà</span>
+            </div>
+            <div class="invitation-buttons">
+              <button class="btn btn-outline-ocean btn-sm" id="btn-zoom-invitation">
+                <i class="fa-solid fa-expand"></i> Phóng to xem chi tiết
+              </button>
+              <a href="assets/Giay_Moi_60_Nam_THPT_Tran_Dai_Quang.pdf" download="Giay_Moi_60_Nam_THPT_Tran_Dai_Quang.pdf" class="btn btn-ocean btn-sm">
+                <i class="fa-solid fa-file-pdf"></i> Tải File Giấy Mời Gốc (PDF)
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- TÍNH NĂNG CÁ NHÂN HÓA GIẤY MỜI -->
+        <div class="personalized-invitation-box">
+          <div class="perso-header">
+            <div class="perso-badge"><i class="fa-solid fa-wand-magic-sparkles"></i> DÀNH RIÊNG CHO BẠN</div>
+            <h3>Tạo Giấy Mời Điện Tử Mang Tên Bạn</h3>
+            <p>Nhập tên của bạn để tạo tấm thiệp mời danh dự lưu niệm cho riêng mình hoặc chia sẻ lên Facebook/Zalo!</p>
+          </div>
+
+          <div class="perso-form-row">
+            <input type="text" id="guest-name-input" class="form-control" placeholder="Nhập họ và tên của bạn (Ví dụ: Nguyễn Văn Hùng)..." maxlength="50">
+            <input type="text" id="guest-class-input" class="form-control" placeholder="Niên khóa / Lớp (Ví dụ: Cựu học sinh Khóa 1996 - 1999)..." maxlength="60">
+            <button class="btn btn-gold" id="btn-generate-guest-card">
+              <i class="fa-solid fa-signature"></i> Tạo Giấy Mời Của Tôi
+            </button>
+          </div>
+
+          <!-- Bản Thiệp Điện Tử Cá Nhân Hóa -->
+          <div class="digital-card-render" id="digitalCardRender">
+            <div class="card-inner-wave"></div>
+            <div class="card-top-header">
+              <div class="text-xs text-muted">SỞ GIÁO DỤC VÀ ĐÀO TẠO NINH BÌNH</div>
+              <div class="text-sm font-bold text-ocean">TRƯỜNG THPT TRẦN ĐẠI QUANG</div>
+              <div class="text-xs text-gold"><span class="font-num-fixed">60</span> NĂM - KIẾN TẠO NHỮNG ƯỚC MƠ (1966 - 2026)</div>
+            </div>
+
+            <div class="card-title-gold">GIẤY MỜI</div>
+            <div class="card-subtitle-dark">DỰ LỄ KỶ NIỆM <span class="font-num-fixed">60</span> NĂM THÀNH LẬP TRƯỜNG</div>
+
+            <div class="guest-invitation-target">
+              <div class="invite-label">TRƯỜNG THPT TRẦN ĐẠI QUANG TRÂN TRỌNG KÍNH MỜI:</div>
+              <div class="guest-personalized-name" id="renderedGuestName">Quý Thầy Cô & Cựu Học Sinh</div>
+              <div class="guest-personalized-class" id="renderedGuestClass">Các Thế Hệ Thầy Và Trò Nhà Trường (1966 - 2026)</div>
+            </div>
+
+            <div class="card-event-details">
+              <div class="detail-row">
+                <i class="fa-regular fa-clock text-ocean"></i>
+                <span><strong>Thời gian:</strong> 07h30 ngày 15 tháng 11 năm 2026</span>
+              </div>
+              <div class="detail-row">
+                <i class="fa-solid fa-location-dot text-ocean"></i>
+                <span><strong>Địa điểm:</strong> Trường THPT Trần Đại Quang, Xã Kim Sơn, Tỉnh Ninh Bình</span>
+              </div>
+              <div class="detail-row">
+                <i class="fa-solid fa-heart text-danger"></i>
+                <span><strong>Thông điệp:</strong> "<span class="font-num-fixed">60</span> năm một chặng đường - Kiến tạo những ước mơ"</span>
+              </div>
+            </div>
+
+            <div class="card-sign-bottom">
+              <div class="sign-date">Kim Sơn, ngày 25 tháng 9 năm 2026</div>
+              <div class="sign-title">T/M BAN TỔ CHỨC • HIỆU TRƯỞNG</div>
+              <div class="sign-name">Nguyễn Mạnh Hà</div>
+            </div>
+
+            <div class="card-actions-row">
+              <button class="btn btn-outline-ocean btn-sm" id="btn-print-card">
+                <i class="fa-solid fa-print"></i> In Thiệp Này
+              </button>
+              <button class="btn btn-ocean btn-sm" id="btn-share-guest-card">
+                <i class="fa-solid fa-share-nodes"></i> Chia sẻ Thiệp Của Tôi
+              </button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       SECTION: LỊCH TRÌNH 2 NGÀY
+       ========================================================================== -->
+  <section class="section schedule-section bg-light-sea" id="schedule">
+    <div class="container">
+      <div class="section-header text-center">
+        <span class="sub-title"><i class="fa-solid fa-list-check"></i> NỘI DUNG CHƯƠNG TRÌNH</span>
+        <h2 class="section-title">Chương Trình Lễ Kỷ Niệm <span class="font-num-fixed">60</span> Năm Thành Lập Trường</h2>
+        <div class="title-underline"></div>
+        <p class="section-description">
+          Chương trình chính thức được ban hành kèm theo Giấy mời của Ban Tổ chức Trường THPT Trần Đại Quang.
+        </p>
+      </div>
+
+      <!-- Schedule Tab Selector -->
+      <div class="schedule-tabs" role="tablist">
+        <button class="sched-tab-btn active" id="sched-tab-14">
+          <div class="sched-tab-day"><i class="fa-regular fa-calendar"></i> NGÀY 14 THÁNG 11 NĂM 2026 (THỨ BẢY)</div>
+          <div class="sched-tab-name">Hội Khóa • Hội Trại Học Sinh • Dâng Hương • Gặp Mặt & Dạ Hội Văn Nghệ</div>
+        </button>
+        <button class="sched-tab-btn" id="sched-tab-15">
+          <div class="sched-tab-day"><i class="fa-regular fa-calendar-check"></i> NGÀY 15 THÁNG 11 NĂM 2026 (CHỦ NHẬT)</div>
+          <div class="sched-tab-name">Đại Lễ Chính Thức Kỷ Niệm 60 Năm • Chương Trình Nghệ Thuật & Tiệc Giao Lưu</div>
+        </button>
+      </div>
+
+      <!-- Schedule Panel: Day 14 -->
+      <div class="schedule-panel active" id="sched-panel-14">
+        <div class="schedule-timeline">
+          
+          <div class="timeline-item">
+            <div class="timeline-time">
+              <span class="time-badge">07h30 - 17h30</span>
+              <span class="time-period">Cả ngày Thứ Bảy</span>
+            </div>
+            <div class="timeline-bullet"></div>
+            <div class="timeline-card reveal-item">
+              <div class="card-tag ocean"><i class="fa-solid fa-users"></i> Đón Tiếp</div>
+              <h3>Đón Tiếp Đại Biểu, Cựu Học Sinh & Khách Quý</h3>
+              <p>Ban Tổ chức đón tiếp các thế hệ cựu giáo chức, cựu học sinh các khóa về thăm trường, đăng ký lưu bút và tham quan không gian truyền thống <span class="font-num-fixed">60</span> năm.</p>
+              <div class="event-meta">
+                <span><i class="fa-solid fa-location-dot"></i> Cổng chính & Sảnh trung tâm</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-time">
+              <span class="time-badge">07h30 - 09h00</span>
+              <span class="time-period">Sáng Thứ Bảy</span>
+            </div>
+            <div class="timeline-bullet"></div>
+            <div class="timeline-card reveal-item">
+              <div class="card-tag ocean"><i class="fa-solid fa-campground"></i> Hội Trại</div>
+              <h3>Hội Trại Học Sinh</h3>
+              <p>Khai mạc và chấm thi hội trại truyền thống của đoàn viên, học sinh các khối lớp nhà trường với chủ đề <em>"<span class="font-num-fixed">60</span> năm - Kiến tạo những ước mơ"</em>.</p>
+              <div class="event-meta">
+                <span><i class="fa-solid fa-location-dot"></i> Khuôn viên sân trường</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-time">
+              <span class="time-badge">08h00 - 18h00</span>
+              <span class="time-period">Sáng - Chiều</span>
+            </div>
+            <div class="timeline-bullet"></div>
+            <div class="timeline-card reveal-item">
+              <div class="card-tag ocean"><i class="fa-solid fa-volleyball"></i> Thể Thao</div>
+              <h3>Giao Lưu Thể Thao Giữa Các Thế Hệ Cựu Học Sinh, Thầy Cô Giáo</h3>
+              <p>Thi đấu giao hữu bóng đá, bóng chuyền, cầu lông nhằm tăng cường tình đoàn kết, gắn bó giữa các khóa học sinh và các thầy cô giáo qua các thời kỳ.</p>
+              <div class="event-meta">
+                <span><i class="fa-solid fa-location-dot"></i> Sân vận động trường</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-time">
+              <span class="time-badge">07h30 - 17h30</span>
+              <span class="time-period">Suốt ngày</span>
+            </div>
+            <div class="timeline-bullet"></div>
+            <div class="timeline-card reveal-item">
+              <div class="card-tag ocean"><i class="fa-solid fa-camera-retro"></i> Hội Ngộ</div>
+              <h3>Hội Ngộ Thầy Trò, Giao Lưu, Thăm Trường Và Chụp Ảnh</h3>
+              <p>Các lớp, khóa cựu học sinh tề tựu tại các phòng học kỷ niệm, gặp lại thầy cô chủ nhiệm, bạn bè cùng khóa và lưu lại những khoảnh khắc quý giá.</p>
+              <div class="event-meta">
+                <span><i class="fa-solid fa-location-dot"></i> Khu các dãy phòng học & Khuôn viên trường</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-time">
+              <span class="time-badge highlight-coral">14h00 - 15h00</span>
+              <span class="time-period">Đầu giờ chiều</span>
+            </div>
+            <div class="timeline-bullet highlight-coral"></div>
+            <div class="timeline-card highlight-card">
+              <div class="card-tag coral"><i class="fa-solid fa-monument"></i> Tri Ân</div>
+              <h3>Dâng Hương Tại Mộ Cố Chủ Tịch Nước Trần Đại Quang</h3>
+              <p>Đoàn đại biểu Đảng ủy, Ban Giám hiệu, đại diện các thế hệ cán bộ, giáo viên và cựu học sinh tổ chức lễ dâng hương tưởng nhớ công lao to lớn của cố Chủ tịch nước Trần Đại Quang - người học trò xuất sắc của trường.</p>
+              <div class="event-meta">
+                <span><i class="fa-solid fa-location-dot"></i> Khu lưu niệm / phần mộ cố Chủ tịch nước Trần Đại Quang (Kim Sơn)</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-time">
+              <span class="time-badge">15h00 - 17h00</span>
+              <span class="time-period">Chiều Thứ Bảy</span>
+            </div>
+            <div class="timeline-bullet"></div>
+            <div class="timeline-card reveal-item">
+              <div class="card-tag ocean"><i class="fa-solid fa-handshake-angle"></i> Tọa Đàm</div>
+              <h3>Gặp Mặt Các Thế Hệ Cán Bộ, Giáo Viên, Nhân Viên</h3>
+              <p>Buổi gặp mặt đầm ấm, thân tình giữa lãnh đạo nhà trường với các thế hệ nhà giáo hưu trí, cán bộ, nhân viên đã từng cống hiến cho mái trường qua các thời kỳ.</p>
+              <div class="event-meta">
+                <span><i class="fa-solid fa-location-dot"></i> Hội trường lớn nhà trường</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-time">
+              <span class="time-badge">17h00 - 18h30</span>
+              <span class="time-period">Chiều tối</span>
+            </div>
+            <div class="timeline-bullet"></div>
+            <div class="timeline-card reveal-item">
+              <div class="card-tag ocean"><i class="fa-solid fa-utensils"></i> Tiệc Mừng</div>
+              <h3>Tiệc Giao Lưu Các Thế Hệ, Cán Bộ, Giáo Viên, Nhân Viên</h3>
+              <p>Bữa cơm sum vầy, ấm tình đồng nghiệp và nghĩa tình thầy trò tại Nhà đa năng nhà trường.</p>
+              <div class="event-meta">
+                <span><i class="fa-solid fa-location-dot"></i> Nhà đa năng</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-time">
+              <span class="time-badge highlight-coral">19h30 - 21h30</span>
+              <span class="time-period">Tối Thứ Bảy</span>
+            </div>
+            <div class="timeline-bullet highlight-coral"></div>
+            <div class="timeline-card highlight-card">
+              <div class="card-tag coral"><i class="fa-solid fa-music"></i> Dạ Hội Văn Nghệ</div>
+              <h3>Chương Trình Giao Lưu Văn Nghệ Các Thế Hệ Nhà Giáo, Cựu Học Sinh, Khách Mời</h3>
+              <p>Đêm hội âm nhạc đặc biệt với các tiết mục đặc sắc ngợi ca mái trường, quê hương Kim Sơn và đất nước do chính các thầy cô và cựu học sinh các thời kỳ biểu diễn.</p>
+              <div class="event-meta">
+                <span><i class="fa-solid fa-location-dot"></i> Sân khấu trung tâm nhà trường</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Schedule Panel: Day 15 -->
+      <div class="schedule-panel" id="sched-panel-15" style="display: none;">
+        <div class="schedule-timeline">
+          
+          <div class="timeline-item">
+            <div class="timeline-time">
+              <span class="time-badge">07h30 - 08h30</span>
+              <span class="time-period">Sáng Chủ Nhật</span>
+            </div>
+            <div class="timeline-bullet"></div>
+            <div class="timeline-card reveal-item">
+              <div class="card-tag ocean"><i class="fa-solid fa-door-open"></i> Đón Tiếp</div>
+              <h3>Đón Tiếp Đại Biểu</h3>
+              <p>Tiếp đón các đồng chí lãnh đạo Tỉnh, Sở GD&ĐT Ninh Bình, Huyện ủy - UBND huyện Kim Sơn, các cơ quan ban ngành, quý thầy cô giáo và đại biểu cựu học sinh về dự lễ.</p>
+              <div class="event-meta">
+                <span><i class="fa-solid fa-location-dot"></i> Sảnh đón tiếp & Phòng khách danh dự</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-time">
+              <span class="time-badge">08h30 - 08h45</span>
+              <span class="time-period">Sáng Chủ Nhật</span>
+            </div>
+            <div class="timeline-bullet"></div>
+            <div class="timeline-card reveal-item">
+              <div class="card-tag ocean"><i class="fa-solid fa-drum"></i> Khai Mạc</div>
+              <h3>Khai Từ: "Âm Vang Ngày Hội"</h3>
+              <p>Màn trống hội và hòa tấu nghệ thuật hào hùng mở màn cho Đại lễ kỷ niệm <span class="font-num-fixed">60</span> năm ngày thành lập trường.</p>
+              <div class="event-meta">
+                <span><i class="fa-solid fa-location-dot"></i> Sân khấu lễ đài chính</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-time">
+              <span class="time-badge highlight-coral">08h45</span>
+              <span class="time-period">Nghi Lễ Chính</span>
+            </div>
+            <div class="timeline-bullet highlight-coral"></div>
+            <div class="timeline-card highlight-card">
+              <div class="card-tag coral"><i class="fa-solid fa-award"></i> TRỌNG THỂ</div>
+              <h3>Chương Trình Lễ Kỷ Niệm <span class="font-num-fixed">60</span> Năm Thành Lập Trường</h3>
+              <div class="schedule-substeps">
+                <div class="substep"><i class="fa-solid fa-check text-ocean"></i> Chào cờ - Tuyên bố lý do - Giới thiệu đại biểu.</div>
+                <div class="substep"><i class="fa-solid fa-check text-ocean"></i> Diễn văn Kỷ niệm <span class="font-num-fixed">60</span> năm thành lập trường (1966 - 2026).</div>
+                <div class="substep"><i class="fa-solid fa-check text-ocean"></i> Công bố Quyết định khen thưởng và trao thưởng.</div>
+                <div class="substep"><i class="fa-solid fa-check text-ocean"></i> Cấp trên phát biểu chỉ đạo, các đơn vị tặng hoa chúc mừng.</div>
+              </div>
+              <div class="event-meta">
+                <span><i class="fa-solid fa-location-dot"></i> Lễ đài sân trường THPT Trần Đại Quang</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-time">
+              <span class="time-badge highlight-coral">10h20</span>
+              <span class="time-period">Phần Hội</span>
+            </div>
+            <div class="timeline-bullet highlight-coral"></div>
+            <div class="timeline-card highlight-card">
+              <div class="card-tag coral"><i class="fa-solid fa-masks-theater"></i> Nghệ Thuật</div>
+              <h3>Chương Trình Nghệ Thuật: "Mạch Nguồn <span class="font-num-fixed">60</span> Năm - Một Dòng Chảy Tự Hào"</h3>
+              <p>
+                • Phát biểu của đại diện các thế hệ nhà giáo, cựu học sinh và học sinh đang theo học.<br>
+                • Tặng hoa tri ân các thế hệ thầy cô giáo & Lời cảm ơn của Ban Tổ chức.
+              </p>
+              <div class="event-meta">
+                <span><i class="fa-solid fa-location-dot"></i> Sân khấu trung tâm</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-time">
+              <span class="time-badge">10h50</span>
+              <span class="time-period">Bế Mạc</span>
+            </div>
+            <div class="timeline-bullet"></div>
+            <div class="timeline-card reveal-item">
+              <div class="card-tag ocean"><i class="fa-solid fa-camera"></i> Kỷ Niệm</div>
+              <h3>Bế Mạc - Chụp Ảnh Lưu Niệm - Tham Quan Nhà Trường</h3>
+              <p>Các đoàn đại biểu, quý thầy cô và các thế hệ học sinh chụp ảnh lưu niệm tại lễ đài và các góc kỷ niệm của trường.</p>
+              <div class="event-meta">
+                <span><i class="fa-solid fa-location-dot"></i> Sân trường & Phòng truyền thống</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-time">
+              <span class="time-badge highlight-coral">11h20</span>
+              <span class="time-period">Tiệc Mừng</span>
+            </div>
+            <div class="timeline-bullet highlight-coral"></div>
+            <div class="timeline-card highlight-card">
+              <div class="card-tag coral"><i class="fa-solid fa-wine-glass"></i> Tri Ân</div>
+              <h3>Tiệc Giao Lưu Thân Mật</h3>
+              <p>Kính mời các Quý Đại biểu, các Thầy Cô giáo và Cựu học sinh dự tiệc và giao lưu ấm áp tình thầy trò.</p>
+              <div class="event-meta">
+                <span><i class="fa-solid fa-location-dot"></i> Tại Nhà đa năng Trường THPT Trần Đại Quang</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       SECTION: HÀNH TRÌNH 60 NĂM (1966 - 2026)
+       ========================================================================== -->
+  <section class="section history-section" id="history">
+    <div class="container">
+      <div class="section-header text-center">
+        <span class="sub-title"><i class="fa-solid fa-clock-rotate-left"></i> TRUYỀN THỐNG VẺ VANG</span>
+        <h2 class="section-title"><span class="font-num-fixed">60</span> Năm - Kiến Tạo Những Ước Mơ (1966 - 2026)</h2>
+        <div class="title-underline"></div>
+        <p class="section-description">
+          Từ mái trường Cấp 3 cấp 3B Kim Sơn sơ tán trong khói lửa kháng chiến đến ngôi trường mang tên vị Chủ tịch nước kính yêu bên sóng biển Kim Sơn.
+        </p>
+      </div>
+
+      <div class="history-stepper">
+        
+        <div class="stepper-item">
+          <div class="stepper-year">1966</div>
+          <div class="stepper-node"></div>
+          <div class="stepper-content reveal-item">
+            <h4>Khởi nguồn trong khói lửa đạn bom</h4>
+            <p>Trường Cấp 3 cấp 3B Kim Sơn được thành lập giữa những năm tháng đế quốc Mỹ leo thang đánh phá ác liệt. Thầy và trò kiên cường bám lớp dạy tốt học tốt, chi viện hàng ngàn người con ưu tú cho tiền tuyến giải phóng miền Nam thống nhất đất nước.</p>
+          </div>
+        </div>
+
+        <div class="stepper-item">
+          <div class="stepper-year">1975 - 1996</div>
+          <div class="stepper-node"></div>
+          <div class="stepper-content reveal-item">
+            <h4>Tái thiết, vươn lên cùng quê hương đất nước</h4>
+            <p>Sau ngày đất nước thống nhất, trường từng bước nâng cấp phòng học, củng cố đội ngũ giáo viên, trở thành cái nôi đào tạo cán bộ, kỹ sư, bác sĩ và chiến sĩ lực lượng vũ trang cho quê hương Kim Sơn và tỉnh Ninh Bình.</p>
+          </div>
+        </div>
+
+        <div class="stepper-item">
+          <div class="stepper-year">2016</div>
+          <div class="stepper-node"></div>
+          <div class="stepper-content reveal-item">
+            <h4>Kỷ niệm 50 năm & Vinh dự đón Cố Chủ tịch nước</h4>
+            <p>Nhà trường kỷ niệm nửa thế kỷ thành lập; vinh dự đón đồng chí Đại tướng, Chủ tịch nước <strong>Trần Đại Quang</strong> – người học trò ưu tú của trường – về thăm lại mái trường xưa và cắt băng khánh thành cơ sở mới.</p>
+          </div>
+        </div>
+
+        <div class="stepper-item highlight-step">
+          <div class="stepper-year">2026</div>
+          <div class="stepper-node"></div>
+          <div class="stepper-content reveal-item">
+            <span class="step-badge">MỐC SON LỊCH SỬ</span>
+            <h4>Chính thức mang tên THPT Trần Đại Quang & Đón Đại Lễ <span class="font-num-fixed">60</span> Năm</h4>
+            <p>Theo Quyết định số 3278/QĐ-UBND của UBND tỉnh Ninh Bình, trường chính thức mang tên <strong>Trường THPT Trần Đại Quang</strong>. Ngày 14 & 15/11/2026, toàn thể các thế hệ học trò tề tựu kỷ niệm <span class="font-num-fixed">60</span> năm với thông điệp: <em>"<span class="font-num-fixed">60</span> năm - Kiến tạo những ước mơ"</em>.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       SECTION: SỔ LƯU BÚT & BẢNG VÀNG TRI ÂN
+       ========================================================================== -->
+  <section class="section wishes-section bg-light-sea" id="wishes">
+    <div class="container">
+      <div class="section-header text-center">
+        <span class="sub-title"><i class="fa-solid fa-pen-fancy"></i> NGHĨA TÌNH THẦY TRÒ</span>
+        <h2 class="section-title">Sổ Lưu Bút Tri Ân Thầy Cô & Mái Trường</h2>
+        <div class="title-underline"></div>
+        <p class="section-description">
+          Hãy cùng gửi gắm những dòng tâm sự, lời chúc sức khỏe thầy cô và ký ức thanh xuân gửi tới ngày hội trường <span class="font-num-fixed">60</span> năm!
+        </p>
+      </div>
+
+      <div class="wishes-layout">
+        <!-- Form gửi lời chúc -->
+        <div class="wishes-form-card">
+          <div class="form-header">
+            <i class="fa-solid fa-feather-pointed text-ocean"></i>
+            <h3>Gửi Lời Chúc <span class="font-num-fixed">60</span> Năm</h3>
+          </div>
+          <form id="wish-form">
+            <div class="form-group">
+              <label for="author-name">Họ và tên của bạn: <span class="required">*</span></label>
+              <input type="text" id="author-name" class="form-control" placeholder="Ví dụ: Nguyễn Văn Hùng" required>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group col-6">
+                <label for="author-role">Bạn là: <span class="required">*</span></label>
+                <select id="author-role" class="form-control" required>
+                  <option value="Cựu học sinh">Cựu học sinh</option>
+                  <option value="Học sinh đang theo học">Học sinh đang học</option>
+                  <option value="Cựu giáo viên / Cán bộ">Cựu giáo viên</option>
+                  <option value="Giáo viên trường">Giáo viên hiện tại</option>
+                  <option value="Phụ huynh học sinh">Phụ huynh học sinh</option>
+                  <option value="Khách quý">Khách quý / Bạn bè</option>
+                </select>
+              </div>
+
+              <div class="form-group col-6">
+                <label for="author-cohort">Khóa học / Niên khóa:</label>
+                <input type="text" id="author-cohort" class="form-control" placeholder="Ví dụ: Khóa 1996 - 1999">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="author-message">Lời nhắn gửi tri ân & kỷ niệm: <span class="required">*</span></label>
+              <textarea id="author-message" rows="4" class="form-control" placeholder="Chia sẻ cảm xúc, lời chúc sức khỏe thầy cô, ký ức tuổi học trò..." required></textarea>
+            </div>
+
+            <div class="form-footer">
+              <button type="submit" class="btn btn-ocean btn-block">
+                <i class="fa-solid fa-paper-plane"></i> Gửi Lời Chúc Lên Bảng Vàng
+              </button>
+            </div>
+          </form>
+        </div>
+
+        <!-- Bảng hiển thị các lời chúc -->
+        <div class="wishes-display-wrapper">
+          <div class="wishes-controls">
+            <span class="wishes-counter"><i class="fa-solid fa-comments text-ocean"></i> <span id="total-wishes-count">0</span> Lời chúc tri ân</span>
+            <div class="wishes-filter">
+              <button class="filter-btn active" data-filter="all">Tất cả</button>
+              <button class="filter-btn" data-filter="alumni">Cựu học sinh</button>
+              <button class="filter-btn" data-filter="teacher">Thầy cô giáo</button>
+            </div>
+          </div>
+
+          <div class="wishes-scroll-box" id="wishes-list">
+            <!-- Render động bằng JavaScript -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       SECTION: THÔNG TIN LIÊN HỆ & BẢN ĐỒ VỀ TRƯỜNG
+       ========================================================================== -->
+  <section class="section contact-section" id="contact">
+    <div class="container">
+      <div class="section-header text-center">
+        <span class="sub-title"><i class="fa-solid fa-map-pin"></i> VỀ VỚI MÁI TRƯỜNG</span>
+        <h2 class="section-title">Thông Tin Liên Hệ Ban Tổ Chức</h2>
+        <div class="title-underline"></div>
+        <p class="section-description">
+          Thông tin liên lạc chính thức in trên Giấy mời của Trường THPT Trần Đại Quang.
+        </p>
+      </div>
+
+      <div class="contact-grid">
+        <div class="contact-card tilt-3d reveal-item">
+          <div class="contact-icon"><i class="fa-solid fa-location-dot"></i></div>
+          <h4>Địa Chỉ Trường</h4>
+          <p>Trường THPT Trần Đại Quang<br>Huyện Kim Sơn, Tỉnh Ninh Bình</p>
+        </div>
+
+        <div class="contact-card tilt-3d reveal-item">
+          <div class="contact-icon"><i class="fa-solid fa-phone-volume"></i></div>
+          <h4>Hotline Ban Tổ Chức</h4>
+          <p class="phone-numbers">
+            <a href="tel:0913292571">0913.292.571</a> • 
+            <a href="tel:0912310731">0912.310.731</a> • 
+            <a href="tel:0943674279">0943.674.279</a>
+          </p>
+        </div>
+
+        <div class="contact-card tilt-3d reveal-item">
+          <div class="contact-icon"><i class="fa-solid fa-envelope"></i></div>
+          <h4>Thư Điện Tử & Website</h4>
+          <p>
+            <a href="mailto:thpttrandaiquang.nb@gmail.com">thpttrandaiquang.nb@gmail.com</a><br>
+            <a href="http://thpttrandaiquang.nb.com.vn" target="_blank">thpttrandaiquang.nb.com.vn</a>
+          </p>
+        </div>
+
+        <div class="contact-card tilt-3d reveal-item">
+          <div class="contact-icon"><i class="fa-brands fa-facebook"></i></div>
+          <h4>Trang Facebook Nhà Trường</h4>
+          <p><a href="https://www.facebook.com/profile.php?id=100070215815404" target="_blank" style="color: var(--sea-600); text-decoration: none; font-weight: 600;">Truy cập Fanpage tại đây</a><br>(Kênh cập nhật hình ảnh và tin tức mới nhất)</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Modal: Phóng to Giấy Mời (Lightbox) -->
+  <div class="modal" id="lightboxModal" aria-hidden="true">
+    <div class="modal-backdrop" id="lightboxBackdrop"></div>
+    <div class="modal-dialog modal-dialog-lg">
+      <div class="modal-header">
+        <h4 id="lightboxTitle"><i class="fa-solid fa-envelope-open"></i> Bản Scan Giấy Mời Chính Thức</h4>
+        <button class="modal-close" id="lightboxCloseBtn">&times;</button>
+      </div>
+      <div class="modal-body text-center p-0">
+        <img src="" alt="Giấy mời phóng to" id="lightboxImage" class="img-fluid lightbox-img">
+      </div>
+      <div class="modal-footer">
+        <a href="assets/Giay_Moi_60_Nam_THPT_Tran_Dai_Quang.pdf" download class="btn btn-ocean btn-sm">
+          <i class="fa-solid fa-download"></i> Tải trọn bộ file PDF gốc
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal: Tùy Chỉnh Giờ Đếm Ngược -->
+  <div class="modal" id="settingsModal" aria-hidden="true">
+    <div class="modal-backdrop" id="modalBackdrop"></div>
+    <div class="modal-dialog">
+      <div class="modal-header">
+        <h4><i class="fa-solid fa-sliders"></i> Tùy Chỉnh Mốc Thời Gian</h4>
+        <button class="modal-close" id="modalCloseBtn">&times;</button>
+      </div>
+      <div class="modal-body">
+        <p class="text-muted text-sm mb-3">
+          Mặc định hệ thống đã đặt đếm ngược tới ngày <strong>14/11/2026</strong> và <strong>15/11/2026</strong> theo Giấy mời chính thức. Bạn có thể điều chỉnh nếu cần:
+        </p>
+        <div class="form-group mb-3">
+          <label>Thời điểm Ngày 14 (Hội trại & Giao lưu):</label>
+          <input type="datetime-local" id="custom-date-14" class="form-control" value="2026-11-14T07:30">
+        </div>
+        <div class="form-group mb-3">
+          <label>Thời điểm Ngày 15 (Đại Lễ Kỷ Niệm 60 Năm):</label>
+          <input type="datetime-local" id="custom-date-15" class="form-control" value="2026-11-15T07:30">
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-outline-ocean btn-sm" id="reset-dates-btn">Khôi phục mặc định</button>
+        <button class="btn btn-ocean btn-sm" id="save-dates-btn">Lưu Cấu Hình</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Thông Báo -->
+  <div class="toast-container" id="toastContainer"></div>
+
+  <!-- Footer Wave -->
+  <footer class="footer">
+    <div class="footer-wave-top">
+      <svg viewBox="0 0 1440 80" preserveAspectRatio="none">
+        <path d="M0,32L80,42.7C160,53,320,75,480,74.7C640,75,800,53,960,42.7C1120,32,1280,32,1360,32L1440,32L1440,80L1360,80C1280,80,1120,80,960,80C800,80,640,80,480,80C320,80,160,80,80,80L0,80Z" fill="#07203d"></path>
+      </svg>
+    </div>
+
+    <div class="container footer-container">
+      <div class="footer-col brand-col">
+        <div class="footer-logo">
+          <img src="assets/logo_60nam_official.png" alt="Logo 60 năm" class="footer-logo-img">
+          <div>
+            <h4>TRƯỜNG THPT TRẦN ĐẠI QUANG</h4>
+            <p>Tiền thân: Trường cấp 3B Kim Sơn (1966 - 2026)</p>
+          </div>
+        </div>
+        <p class="footer-quote">
+          "<span class="font-num-fixed">60</span> Năm Vang Mãi Khúc Ca Trồng Người • <span class="font-num-fixed">60</span> Năm - Kiến Tạo Những Ước Mơ!"
+        </p>
+        <div class="school-contact-info">
+          <p><i class="fa-solid fa-location-dot"></i> Địa chỉ: Huyện Kim Sơn, Tỉnh Ninh Bình</p>
+          <p><i class="fa-solid fa-phone"></i> Điện thoại: 0913.292.571 - 0912.310.731 - 0943.674.279</p>
+          <p><i class="fa-solid fa-envelope"></i> Email: thpttrandaiquang.nb@gmail.com</p>
+        </div>
+      </div>
+
+      <div class="footer-col links-col">
+        <h5>Mục Quan Trọng</h5>
+        <ul>
+          <li><a href="#countdown"><i class="fa-solid fa-angle-right"></i> Đồng hồ đếm ngược</a></li>
+          <li><a href="#invitation"><i class="fa-solid fa-angle-right"></i> Xem & Tải Giấy mời</a></li>
+          <li><a href="#schedule"><i class="fa-solid fa-angle-right"></i> Lịch trình 14 & 15/11</a></li>
+          <li><a href="#history"><i class="fa-solid fa-angle-right"></i> Dấu mốc lịch sử 60 năm</a></li>
+          <li><a href="#wishes"><i class="fa-solid fa-angle-right"></i> Sổ lưu bút tri ân</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col spirit-col">
+        <h5>Hội Tụ 60 Năm</h5>
+        <div class="tag-cloud">
+          <span class="tag">#KimSonB</span>
+          <span class="tag">#THPTTranDaiQuang</span>
+          <span class="tag">#60NamThanhLap</span>
+          <span class="tag">#1966_2026</span>
+          <span class="tag">#KienTaoNhungUocMo</span>
+          <span class="tag">#Ngay14va15_11</span>
+          <span class="tag">#TriAnThayCo</span>
+        </div>
+        <p class="text-sm mt-3 text-muted">
+          Trân trọng kính mời quý thầy cô và các thế hệ học sinh về dự Đại lễ Kỷ niệm <span class="font-num-fixed">60</span> năm ngày thành lập trường vào ngày 14 & 15 tháng 11 năm 2026!
+        </p>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="container text-center">
+        <p>© 1966 - 2026 TRƯỜNG THPT TRẦN ĐẠI QUANG (CẤP 3B KIM SƠN). KỶ NIỆM <span class="font-num-fixed">60</span> NĂM THÀNH LẬP TRƯỜNG.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="effects.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
