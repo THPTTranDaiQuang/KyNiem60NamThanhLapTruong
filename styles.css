@@ -2607,3 +2607,33 @@ body.ocean-theme {
     .nav-links { display: none; }
     .mobile-menu-toggle { display: block !important; }
 }
+
+/* ==========================================================================
+   Interactive Card Effects (Lật, Nổi bật, Dìm)
+   ========================================================================== */
+.interactive-card {
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease !important;
+  cursor: pointer;
+}
+
+/* Nổi bật thẻ (Pop-out) khi đưa chuột vào */
+.interactive-card:hover {
+  transform: translateY(-12px) scale(1.02) !important;
+  box-shadow: 0 25px 40px rgba(2, 132, 199, 0.15) !important;
+  border-color: rgba(255, 255, 255, 1) !important;
+  z-index: 10;
+}
+
+/* Dìm thẻ (Sink) khi bấm chuột vào */
+.interactive-card:active {
+  transform: translateY(4px) scale(0.96) !important;
+  box-shadow: 0 5px 10px rgba(2, 132, 199, 0.1) !important;
+}
+
+#btn-reminder:hover {
+  transform: scale(1.05);
+  background: #fff !important;
+}
+#btn-reminder:active {
+  transform: scale(0.95);
+}

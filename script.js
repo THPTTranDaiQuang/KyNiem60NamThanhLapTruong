@@ -1195,3 +1195,44 @@ const revealObserver = new IntersectionObserver((entries, observer) => {
 document.querySelectorAll('.reveal-item').forEach(el => {
     revealObserver.observe(el);
 });
+
+// ==========================================================================
+// THÔNG BÁO NHẮC NHỞ MỖI NGÀY
+// ==========================================================================
+const btnReminder = document.getElementById('btn-reminder');
+if (btnReminder) {
+    btnReminder.addEventListener('click', async () => {
+        const email = prompt("Vui lòng nhập Email của bạn để nhận thông báo đếm ngược và nhắc nhở sự kiện mỗi ngày:");
+        if (!email) return;
+        
+        // Basic email validation
+        if (!email.includes('@') || !email.includes('.')) {
+            alert("Email không hợp lệ. Vui lòng thử lại!");
+            return;
+        }
+
+        const originalHTML = btnReminder.innerHTML;
+        btnReminder.innerHTML = '<i class="fa-solid fa-circle-notch fa-spin text-gold"></i> Đang đăng ký...';
+        btnReminder.disabled = true;
+
+        try {
+            await fetch('https://formsubmit.co/ajax/tuvu31277@gmail.com', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+                body: JSON.stringify({
+                    _subject: `[Đăng ký Nhắc Nhở] Đếm ngược 60 Năm từ ${email}`,
+                    _replyto: email,
+                    Email_Khach: email,
+                    Thong_Bao: `Khách có email ${email} vừa đăng ký nhận thông báo nhắc nhở mỗi ngày về sự kiện Kỷ niệm 60 năm.`
+                })
+            });
+            
+            btnReminder.innerHTML = '<i class="fa-solid fa-check-circle" style="color: #10b981;"></i> Đã Đăng Ký Nhắc Nhở';
+            alert(`Đăng ký thành công!\nHệ thống sẽ tự động gửi email nhắc nhở mỗi ngày đến: ${email}`);
+        } catch(e) {
+            btnReminder.innerHTML = originalHTML;
+            btnReminder.disabled = false;
+            alert("Lỗi kết nối. Vui lòng thử lại sau.");
+        }
+    });
+}
