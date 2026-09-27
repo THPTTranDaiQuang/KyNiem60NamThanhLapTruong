@@ -196,6 +196,8 @@ body.ocean-theme {
 }
 
 .brand-logo {
+  flex-shrink: 0;
+  white-space: nowrap;
   display: flex;
   align-items: center;
   gap: 12px;
@@ -211,6 +213,7 @@ body.ocean-theme {
 }
 
 .school-authority {
+  white-space: nowrap;
   font-size: 0.68rem;
   color: var(--text-muted);
   font-weight: 600;
@@ -218,6 +221,7 @@ body.ocean-theme {
 }
 
 .school-name {
+  white-space: nowrap;
   font-weight: 800;
   font-size: 0.95rem;
   letter-spacing: 0.3px;
@@ -226,6 +230,7 @@ body.ocean-theme {
 }
 
 .school-sub {
+  white-space: nowrap;
   font-size: 0.72rem;
   color: var(--coral-600);
   font-weight: 700;
@@ -2218,10 +2223,15 @@ body.ocean-theme {
 @media (max-width: 1200px) {
   .nav-item {
   white-space: nowrap; padding: 4px 6px; font-size: 0.8rem; gap: 4px; }
-  .school-name { font-size: 0.85rem; }
-  .school-authority { font-size: 0.6rem; }
-  .school-sub { font-size: 0.65rem; }
-  .brand-logo { gap: 8px; }
+  .school-name {
+  white-space: nowrap; font-size: 0.85rem; }
+  .school-authority {
+  white-space: nowrap; font-size: 0.6rem; }
+  .school-sub {
+  white-space: nowrap; font-size: 0.65rem; }
+  .brand-logo {
+  flex-shrink: 0;
+  white-space: nowrap; gap: 8px; }
   .btn-celebrate { font-size: 0.8rem; padding: 6px 12px; }
   .nav-links { gap: 6px; }
   .header-actions { gap: 6px; }
@@ -2616,4 +2626,18 @@ body.ocean-theme {
   color: var(--text-muted);
   font-size: 0.9rem;
   line-height: 1.5;
+}
+
+.brand-text {
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.header .container {
+    max-width: 1350px !important;
+    padding: 0 30px;
+}
+@media (max-width: 1150px) {
+    .nav-links { display: none; }
+    .mobile-menu-toggle { display: block !important; }
 }
