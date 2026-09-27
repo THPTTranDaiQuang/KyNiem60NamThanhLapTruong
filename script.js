@@ -1236,3 +1236,149 @@ if (btnReminder) {
         }
     });
 }
+
+// ==========================================================================
+// SCHEDULE EVENT MODAL LOGIC
+// ==========================================================================
+const eventModal = document.getElementById('event-modal');
+const closeEventModalBtn = document.getElementById('close-event-modal');
+const emTime = document.getElementById('em-time');
+const emTitle = document.getElementById('em-title');
+const emLoc = document.getElementById('em-loc');
+const emDesc = document.getElementById('em-desc');
+const emExtended = document.getElementById('em-extended');
+
+function getExtendedDetails(title) {
+    const t = title.toLowerCase();
+    if (t.includes('đón tiếp')) {
+        return `<ul>
+            <li>Check-in tại quầy đại biểu và nhận thẻ tên.</li>
+            <li>Nhận bộ tài liệu và quà tặng kỷ niệm 60 năm.</li>
+            <li>Ghi danh và lưu bút tại Sổ vàng truyền thống.</li>
+            <li>Thưởng thức tiệc trà nhẹ tại sảnh chờ.</li>
+        </ul>`;
+    }
+    if (t.includes('dâng hương')) {
+        return `<ul>
+            <li>Tập trung toàn thể đại biểu tại sân trường.</li>
+            <li>Di chuyển trang trọng ra khu lưu niệm cố Chủ tịch nước.</li>
+            <li>Thực hiện nghi thức dâng hương tưởng nhớ và tri ân.</li>
+        </ul>`;
+    }
+    if (t.includes('gặp mặt') || t.includes('hội khóa')) {
+        return `<ul>
+            <li>Các khóa học sinh tự do tổ chức gặp mặt thầy cô giáo cũ.</li>
+            <li>Tham quan Không gian trưng bày truyền thống 60 năm.</li>
+            <li>Chụp ảnh lưu niệm tại các Photobooth được thiết kế riêng.</li>
+            <li>Giao lưu, kết nối các thế hệ cựu học sinh Kim Sơn B.</li>
+        </ul>`;
+    }
+    if (t.includes('dạ hội')) {
+        return `<ul>
+            <li>Chương trình biểu diễn nghệ thuật đặc sắc từ cựu học sinh.</li>
+            <li>Nghi thức Đốt lửa trại truyền thống rực rỡ.</li>
+            <li>Bùng nổ với không gian âm nhạc hiện đại, trẻ trung.</li>
+        </ul>`;
+    }
+    if (t.includes('đại lễ chính thức')) {
+        return `<ul>
+            <li>Đón tiếp các đồng chí Lãnh đạo cấp cao, khách quý.</li>
+            <li>Chương trình văn nghệ chào mừng hào hùng, hoành tráng.</li>
+            <li>Lễ Chào cờ và Phút sinh hoạt truyền thống.</li>
+            <li>Đọc Diễn văn kỷ niệm và Nghi thức Đánh trống trường.</li>
+            <li>Lễ Công bố quyết định và Trao thưởng các danh hiệu cao quý.</li>
+            <li>Phát biểu tri ân của các thế hệ học sinh.</li>
+        </ul>`;
+    }
+    if (t.includes('tiệc giao lưu')) {
+        return `<ul>
+            <li>Dự tiệc thân mật toàn thể đại biểu, khách mời, cựu học sinh.</li>
+            <li>Giao lưu văn nghệ tự do "Hát cho nhau nghe".</li>
+            <li>Trao những cái ôm tạm biệt và bế mạc đại lễ.</li>
+        </ul>`;
+    }
+    
+    if (t.includes('khói lửa đạn bom')) {
+        return `<ul>
+            <li>Thành lập trong bối cảnh chiến tranh ác liệt.</li>
+            <li>Học sinh và giáo viên vừa học vừa đào hào tránh bom.</li>
+            <li>Chi viện hàng ngàn học sinh ưu tú lên đường nhập ngũ bảo vệ Tổ quốc.</li>
+            <li>Đặt nền móng vững chắc cho truyền thống hiếu học của Kim Sơn B.</li>
+        </ul>`;
+    }
+    if (t.includes('tái thiết')) {
+        return `<ul>
+            <li>Nhà trường chuyển từ lớp học tạm bợ sang xây dựng kiên cố.</li>
+            <li>Đội ngũ giáo viên được củng cố và không ngừng nâng cao chuyên môn.</li>
+            <li>Trở thành lá cờ đầu trong phong trào thi đua dạy tốt học tốt của tỉnh.</li>
+            <li>Đào tạo ra nhiều thế hệ Lãnh đạo, Tướng lĩnh, Kỹ sư, Bác sĩ tài năng.</li>
+        </ul>`;
+    }
+    if (t.includes('50 năm')) {
+        return `<ul>
+            <li>Tổ chức Đại lễ kỷ niệm 50 năm thành lập trường hoành tráng.</li>
+            <li>Vinh dự đón tiếp Cố Chủ tịch nước Trần Đại Quang (Cựu học sinh ưu tú) về thăm trường.</li>
+            <li>Cắt băng khánh thành cơ sở vật chất mới khang trang, hiện đại.</li>
+            <li>Được Đảng và Nhà nước trao tặng nhiều phần thưởng cao quý.</li>
+        </ul>`;
+    }
+    if (t.includes('60 năm')) {
+        return `<ul>
+            <li>Chính thức mang tên Trường THPT Trần Đại Quang theo quyết định của UBND Tỉnh.</li>
+            <li>Khởi động chuỗi sự kiện Kỷ niệm 60 năm - Kiến tạo những ước mơ.</li>
+            <li>Quy tụ hàng ngàn cựu học sinh các thời kỳ từ khắp mọi miền Tổ quốc.</li>
+            <li>Bước vào kỷ nguyên giáo dục đổi mới, vươn tầm quốc gia.</li>
+        </ul>`;
+    }
+
+    return `<ul><li>Đang cập nhật chi tiết chương trình...</li></ul>`;
+}
+
+document.querySelectorAll('.timeline-card, .stepper-content').forEach(card => {
+    card.addEventListener('click', function() {
+        const title = this.querySelector('h4').innerText;
+        const desc = this.querySelector('p').innerText;
+        
+        let loc = '';
+        const locEl = this.querySelector('.timeline-location');
+        if (locEl) { loc = locEl.innerHTML; }
+        
+        // Find time from the sibling/parent structure
+        const timelineItem = this.closest('.timeline-item');
+        const stepperItem = this.closest('.stepper-row');
+        let timeText = 'Chi tiết';
+        if (timelineItem) {
+            const timeEl = timelineItem.querySelector('.timeline-time .time');
+            const dateEl = timelineItem.querySelector('.timeline-time .date');
+            if (timeEl) timeText = timeEl.innerText;
+            if (dateEl) timeText += ' - ' + dateEl.innerText;
+        } else if (stepperItem) {
+            const yearEl = stepperItem.querySelector('.stepper-year');
+            if (yearEl) timeText = "Năm " + yearEl.innerText;
+        }
+
+        emTitle.innerText = title;
+        emDesc.innerText = desc;
+        emTime.innerText = timeText;
+        emLoc.innerHTML = loc;
+        emExtended.innerHTML = getExtendedDetails(title);
+
+        eventModal.classList.add('show');
+    });
+});
+
+if (closeEventModalBtn) {
+    closeEventModalBtn.addEventListener('click', () => {
+        eventModal.classList.remove('show');
+    });
+}
+if (eventModal) {
+    eventModal.addEventListener('click', (e) => {
+        if (e.target === eventModal) {
+            eventModal.classList.remove('show');
+        }
+    });
+}
+document.getElementById('em-add-cal')?.addEventListener('click', () => {
+    alert("Đã mở ứng dụng Lịch (Calendar) để thêm sự kiện này!");
+});
